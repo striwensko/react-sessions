@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './App.css'
+import {NavStyled, NavItemStyled, Border, StyledLink} from './style';
 
 const getLinks = () => [ { label: 'Home', url: '/' }, { label: 'Woof!', url: '/dog' }, { label: 'Hello!', url: '/hello' } ]
 
+
+const NavItem = ({url, label}) => {
+  return (<NavItemStyled className='link' key={url}>
+    <StyledLink to={url}>{label}</StyledLink>
+    <Border/>
+  </NavItemStyled>);
+}
 class App extends Component {
   constructor (props) {
     super(props)
@@ -21,19 +29,16 @@ class App extends Component {
   }
 
   renderLinks () {
-    return this.state.links.map(({url, label}) => (
-      <li className='link' key={url}>
-        <Link to={url}>{label}</Link>
-        <span className='border' />
-      </li>
+    return this.state.links.map((link) => (
+      <NavItem {...link}/>
     ))
   }
 
   render () {
     return (
-      <ul className='nav'>
+      <NavStyled>
         {this.renderLinks()}
-      </ul>
+      </NavStyled>
     )
   }
 }
