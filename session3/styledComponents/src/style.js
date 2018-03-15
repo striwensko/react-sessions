@@ -9,7 +9,7 @@ const NavStyled = styled.ul`
     text-align:center;
 `
 const StyledLink = styled(Link)`
-    color: red !important;
+    color: ${(props)=> props.active ? 'blue' : 'black'}  !important;
 `
 const NavItemStyled = styled.li`
     display:inline;

@@ -8,7 +8,7 @@ const getLinks = () => [ { label: 'Home', url: '/' }, { label: 'Woof!', url: '/d
 
 const NavItem = ({url, label}) => {
   return (<NavItemStyled className='link' key={url}>
-    <StyledLink to={url}>{label}</StyledLink>
+    <StyledLink active to={url}>{label}</StyledLink>
     <Border/>
   </NavItemStyled>);
 }
